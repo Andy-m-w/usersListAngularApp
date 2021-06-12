@@ -9,7 +9,11 @@
 </head>
 
 <body>
-	<button>Click me</button>
+	<nav class="main-page__list">
+		<a routerLink="users" class="main-page__item">Таблица пользователей</a>
+		<a class="main-page__item">Изменить/добавить пользователя</a>
+	</nav>
+	<router-outlet></router-outlet>
 </body>
 
 </html>

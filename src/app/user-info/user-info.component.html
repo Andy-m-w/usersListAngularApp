@@ -1,0 +1,17 @@
+<ul class="user-info__cnt">
+	<h1>Пользователи:</h1>
+	<li *ngFor="let user of users" class="user-info__list">
+		<div class="user-info__item">{{user.login}}</div>
+		<div class="user-info__item">{{user.surname}}</div>
+		<div class="user-info__item">{{user.tel}}</div>
+		<div class="user-info__item">{{user.adress}}</div>
+		<button class="user-info__edit-user" title="Редактировать данные"></button>
+	</li>
+	<div routerLink="/main-page" class="btn__cnt" title="Добавить пользователя">
+		<button class="user-info__btn">
+
+		</button>
+	</div>
+</ul>
+
+<router-outlet></router-outlet>

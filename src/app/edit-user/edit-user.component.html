@@ -1,0 +1,62 @@
+<a routerLink="" class="to-main-page"><span class="to-main-page__text">В главное меню</span></a>
+
+<!-- creat -->
+<div *ngIf="condition" class="wrapper">
+	<form (ngSubmit)="addUser()">
+		<div class="edit-user__inputs">
+			<div class="mb-3">
+				<label for="login" class="form-label">Логин:</label>
+				<input #login="ngModel" [(ngModel)]="user.login" name="login" class="form-control" id="login"
+					placeholder="Логин" required>
+			</div>
+			<div class="mb-3">
+				<label for="name" class="form-label">ФИО:</label>
+				<input #name="ngModel" [(ngModel)]="user.name" name="name" class="form-control" id="name" placeholder="ФИО"
+					required>
+			</div>
+			<div class="mb-3">
+				<label for="tel" type="tel" class="form-label">Номер телефона (от 5 до 11 цифр):</label>
+				<input #tel="ngModel" [(ngModel)]="user.tel" name="tel" class="form-control" id="tel" placeholder="Телефон"
+					required pattern="[0-9]{5,11}">
+			</div>
+			<div class="mb-3">
+				<label for="adress" class="form-label">Адрес:</label>
+				<input #adress="ngModel" [(ngModel)]="user.adress" name="adress" class="form-control" id="adress"
+					placeholder="Адрес" required>
+			</div>
+		</div>
+		<input type="submit" [disabled]="login.invalid || name.invalid || tel.invalid|| adress.invalid"
+			class="edit-user__btn btn-add" value="Добавить пользователя">
+		<button routerLink="/users" class="edit-user__btn btn-reset">Отмена</button>
+	</form>
+</div>
+
+<!-- edit -->
+<div *ngIf="!condition" class="wrapper">
+	<form (ngSubmit)="editUser(form)" #form="ngForm">
+		<div class="edit-user__inputs">
+			<div class="mb-3">
+				<label for="login" class="form-label">Логин:</label>
+				<input [ngModel]="currentUser.login" name="login" class="form-control" id="login" placeholder="Логин"
+					required>
+			</div>
+			<div class="mb-3">
+				<label for="name" class="form-label">ФИО:</label>
+				<input [ngModel]="currentUser.name" name="name" class="form-control" id="name" placeholder="ФИО" required>
+			</div>
+			<div class="mb-3">
+				<label for="tel" type="tel" class="form-label">Номер телефона (от 5 до 11 цифр):</label>
+				<input [ngModel]="currentUser.tel" name="tel" class="form-control" id="tel" placeholder="Телефон" required
+					pattern="[0-9]{5,11}">
+			</div>
+			<div class="mb-3">
+				<label for="adress" class="form-label">Адрес:</label>
+				<input [ngModel]="currentUser.adress" name="adress" class="form-control" id="adress" placeholder="Адрес"
+					required>
+			</div>
+		</div>
+		<input type="submit" class="edit-user__btn btn-edit" value="Сохранить изменения">
+		<button (click)="deleteUser()" class="edit-user__btn btn-delete" title="Удалить пользователя">Удалить</button>
+		<button routerLink="/users" class="edit-user__btn btn-reset">Отмена</button>
+	</form>
+</div>

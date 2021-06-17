@@ -1,0 +1,68 @@
+.wrapper {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 90px 30px;
+}
+
+//link to main page
+.to-main-page {
+	display: block;
+	height: 50px;
+	background-color: #ccc;
+	color: #fff;
+	font-weight: 600;
+	font-size: 20px;
+	margin: 0px 0px 70px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	position: absolute;
+}
+
+//inputs
+.edit-user {
+	&__inputs {
+		margin: 0px 0px 70px 0px;
+	}
+	&__btn {
+		display: block;
+		width: 100%;
+		color: #fff;
+		border-radius: 5px;
+		padding: 3px;
+		font-weight: 600;
+		&:not(:last-child) {
+			margin: 0px 0px 15px 0px;
+		}
+		&.btn-add {
+			background-color: rgb(6, 192, 90);
+			&:disabled {
+				background-color: rgba(157, 241, 195, 0.466);
+				color: rgba(104, 104, 104, 0.678);
+			}
+		}
+		&.btn-edit {
+			background-color: rgb(8, 86, 189);
+		}
+		&.btn-delete {
+			background-color: rgb(214, 71, 71);
+		}
+		&.btn-reset {
+			background-color: rgb(179, 170, 170);
+		}
+	}
+}
+.mb-3:last-of-type {
+	margin: 0px 0px 40px 0px;
+}
+
+//valid style
+.ng-valid[required],
+.ng-valid.required {
+	border-left: 5px solid rgb(6, 192, 90); /* green */
+}
+
+.ng-invalid:not(form) {
+	border-left: 5px solid rgb(214, 71, 71); /* red */
+}

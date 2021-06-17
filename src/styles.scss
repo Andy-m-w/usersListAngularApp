@@ -2,3 +2,15 @@
 body {
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
+:root {
+	--btn-add: rgb(17, 133, 104);
+	--btn-reset: rgb(190, 69, 69);
+	--btn-edit: rgb(18, 78, 156);
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";

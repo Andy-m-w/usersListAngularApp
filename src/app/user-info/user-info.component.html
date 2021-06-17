@@ -1,17 +1,55 @@
-<ul class="user-info__cnt">
+<a routerLink="">В главное меню</a>
+<div class="user-info__cnt ">
 	<h1>Пользователи:</h1>
-	<li *ngFor="let user of users" class="user-info__list">
-		<div class="user-info__item">{{user.login}}</div>
-		<div class="user-info__item">{{user.surname}}</div>
-		<div class="user-info__item">{{user.tel}}</div>
-		<div class="user-info__item">{{user.adress}}</div>
-		<button class="user-info__edit-user" title="Редактировать данные"></button>
-	</li>
-	<div routerLink="/main-page" class="btn__cnt" title="Добавить пользователя">
-		<button class="user-info__btn">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Логин</th>
+				<th scope="col">ФИО</th>
+				<th scope="col">Номер Телефона</th>
+				<th scope="col">Адрес</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody *ngIf="condition">
+			<tr *ngFor="let user of userList">
+				<td>{{user.login}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.tel}}</td>
+				<td>{{user.adress}}</td>
+				<td><button [routerLink]="['/users', user.login] " class=" btn-primary btn"
+						title="Редактировать данные">Редактировать</button></td>
+			</tr>
+		</tbody>
+		<tbody *ngIf="!condition">
+			<td>Список пуст</td>
+		</tbody>
+	</table>
+	<div class="btn-cnt"><button routerLink="createUser" class="add-btn" title="Добавить пользователя">Добавить
+			пользователя</button></div>
+</div>
 
-		</button>
+
+
+
+
+
+
+
+
+<!-- <div class="user-info__cnt"> -->
+<!-- <h1>Пользователи:</h1>
+	<ul *ngIf="condition">
+		<li *ngFor="let user of userList" class="user-info__list">
+			<div class="user-info__item">{{user.login}}</div>
+			<div class="user-info__item">{{user.name}}</div>
+			<div class="user-info__item">{{user.tel}}</div>
+			<div class="user-info__item">{{user.adress}}</div>
+			<button [routerLink]="['/users', user.login] " class="user-info__edit-user"
+				title="Редактировать данные"></button>
+		</li>
+	</ul>
+	<div class="add-user">
+		<button routerLink="createUser" title="Добавить пользователя"></button>
 	</div>
-</ul>
-
-<router-outlet></router-outlet>
+</div> -->

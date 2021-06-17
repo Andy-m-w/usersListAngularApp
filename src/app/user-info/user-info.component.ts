@@ -1,23 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { usersBase } from '../app.component'
+import { from } from 'rxjs';
+import { User, UserEditorService } from '../user-editor.service';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs'
+
+
 @Component({
 	selector: 'app-user-info',
 	templateUrl: './user-info.component.html',
-	styleUrls: ['./user-info.component.scss']
+	styleUrls: ['./user-info.component.scss'],
+	providers: [UserEditorService]
 })
 export class UserInfoComponent implements OnInit {
-	userLogin = usersBase[0].login;
-	userSurname = usersBase[0].surname;
-	userTel = usersBase[0].tel;
-	userAdress = usersBase[0].adress;
+	userList: User[] = UserEditorService.getUsersList();
+	condition: boolean = this.userList.length > 0;
 
-	constructor() {
-
+	constructor(
+		private usersEditor: UserEditorService,
+		private activeRoute: ActivatedRoute
+	) {
 	}
-
 	ngOnInit(): void {
 	}
 
-	users = usersBase;
+
 
 }

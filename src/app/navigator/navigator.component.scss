@@ -1,0 +1,22 @@
+.nav {
+	// .main-page__list
+	&__main-page {
+		max-width: 1000px;
+		margin: 0 auto;
+		text-align: center;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.nav__item {
+			display: block;
+			font-size: 30px;
+			text-decoration: none;
+			color: #000;
+			&:not(:last-child) {
+				margin-bottom: 40px;
+			}
+		}
+	}
+}

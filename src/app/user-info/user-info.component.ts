@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { User, UserEditorService } from '../user-editor.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs'
 
 
@@ -14,15 +14,19 @@ import { Subscription } from 'rxjs'
 export class UserInfoComponent implements OnInit {
 	userList: User[] = UserEditorService.getUsersList();
 	condition: boolean = this.userList.length > 0;
-
 	constructor(
 		private usersEditor: UserEditorService,
-		private activeRoute: ActivatedRoute
+		private activeRoute: ActivatedRoute,
+		private router: Router
 	) {
 	}
 	ngOnInit(): void {
 	}
 
 
-
 }
+
+
+
+
+

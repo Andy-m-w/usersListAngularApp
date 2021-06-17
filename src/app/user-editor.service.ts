@@ -27,16 +27,13 @@ export class User {
 
 export class UserEditorService {
 	constructor() { }
-	static usersBase: User[] = [
-		// {
-		// 	// login: 'defaultUser',
-		// 	// id: 1,
-		// 	// name: 'surnam1',
-		// 	// tel: "99",
-		// 	// adress: 'adress1'
-		// },
 
-	];
+
+	static usersBase: User[] = [];
+
+
+
+
 
 	static getUsersList(): User[] {
 		return this.usersBase;
@@ -62,4 +59,18 @@ export class UserEditorService {
 			this.usersBase.splice(userIndex, 1);
 		}
 	}
+	//изначальное заполнение списка
+
+
+	static creatDefaultUsers(): void {
+		let arr: string[] = ['Ivan', 'Constantin', 'Polina', 'Dmitriy', 'Elena', 'Vladimit', 'Eduard', 'Yna', 'Svetlana', 'Vladislav']
+		for (let i = 0; i <= arr.length - 1; i++) {
+			this.createUser(arr[i], `${arr[i]} Иванович`, '8914' + i * 88, 'Russia/Novosibirsk');
+		}
+	}
+
+
 }
+
+
+

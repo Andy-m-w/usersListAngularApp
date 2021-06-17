@@ -40,12 +40,15 @@ export class EditUserComponent implements OnInit {
 	deleteUser() {
 		UserEditorService.deleteUser(this.currentUser)
 	}
-
+	fillList() {
+		UserEditorService.creatDefaultUsers();
+	}
 	constructor(
 		private activeRoutes: ActivatedRoute,
 		private router: Router,
 
 	) { }
+
 
 	ngOnInit(): void {
 

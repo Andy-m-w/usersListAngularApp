@@ -28,6 +28,9 @@
 		<input type="submit" [disabled]="login.invalid || name.invalid || tel.invalid|| adress.invalid"
 			class="edit-user__btn btn-add" value="Добавить пользователя">
 		<button routerLink="/users" class="edit-user__btn btn-reset">Отмена</button>
+		<button (click)="fillList()" class="edit-user__btn btn-add" title="Добавить пользователя">Наполнить список
+			пользователями
+		</button>
 	</form>
 </div>
 
